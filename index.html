@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+    <head>  
+        <link rel="stylesheet" href="style.css">
+
+        <meta charset="UTF-8" />
+    
+        <title>Hello, world!</title>
+    
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+    
+        <meta name="description" content="" />
+    
+    </head>
+
+    <body>
+        <div id="myDIV" class="header">
+            <span onclick="changeRomanian()" class="btn">chang  e-romanian</span>
+            <span onclick="changeOxford()" class="btn">change-oxford(FAST)</span>
+            <span onclick="changeEnglish()" class="btn">change-english(SLOW)</span>
+          
+            <input type="text" id="myInput" placeholder="litere">
+            <span onclick="updateAll()" class="addBtn">Search</span>
+            <input type="text" id="size" placeholder="marime cuvant">
+            <span onclick="removeAll()" class="addBtn">Remove All</span>
+        </div>
+        
+        <ul id="myUL">
+          <li>type the leters in 1st box and the size of the searched word in the second box</li>
+          <li>oxford is faster but has a few less words, try switching to "english(slow)" if u cant find a word</li>
+        </ul> 
+          
+        <script>
+          var is_english=false;
+
+            function changeOxford(){
+                is_english=2;
+            }
+
+            function changeRomanian(){
+                is_english=0;
+            }
+
+            function changeEnglish(){
+                is_english=1;
+            }
+
+          function updateAll(){
+            removeAll();
+            let word=document.getElementById("myInput").value;
+            let size=parseInt(document.getElementById("size").value);
+            //console.log(size);
+            var WORD_LIST = Module.find_all(word,size,is_english); 
+            for(let i=0;i<WORD_LIST.length;i++)
+            {
+               var li = document.createElement("li");
+               var inputValue = WORD_LIST[i];
+               var t = document.createTextNode(inputValue);
+               li.appendChild(t);
+               document.getElementById("myUL").appendChild(li);
+               
+               document.getElementById("size").value = "";
+             
+              var span = document.createElement("SPAN");
+               var txt = document.createTextNode("\u00D7");
+               span.className = "close";
+               span.appendChild(txt);
+               li.appendChild(span);
+             
+              for (i = 0; i < close.length; i++) {
+                 close[i].onclick = function() {
+                   var div = this.parentElement;
+                   div.style.display = "none";
+                 }
+               }
+            }
+          }
+
+          function removeAll() {
+            var ul = document.getElementById("myUL");
+            while (ul.firstChild) {
+              ul.removeChild(ul.firstChild);
+            }
+          }
+
+          var Module = {
+            onRuntimeInitialized: function() {
+              //Module.find_all("măr",3,0);
+              console.log("done");
+              
+
+            }
+          };
+          // Create a "close" button and append it to each list item
+
+
+            var myNodelist = document.getElementsByTagName("LI");
+            var i;
+            for (i = 0; i < myNodelist.length; i++) {
+              var span = document.createElement("SPAN");
+              var txt = document.createTextNode("\u00D7");
+              span.className = "close";
+              span.appendChild(txt);
+              myNodelist[i].appendChild(span);
+            }
+
+            // Click on a close button to hide the current list item
+            var close = document.getElementsByClassName("close");
+            var i;
+            for (i = 0; i < close.length; i++) {
+              close[i].onclick = function() {
+                var div = this.parentElement;
+                div.style.display = "none";
+              }
+            }
+
+            /*
+            // Add a "checked" symbol when clicking on a list item
+            var list = document.querySelector('ul');
+            list.addEventListener('click', function(ev) {
+              if (ev.target.tagName === 'LI') {
+                ev.target.classList.toggle('checked');
+              }
+            }, false);
+            */
+
+            // Create a new list item when clicking on the "Add" button
+
+        </script>
+        <script src="find_words.js"></script>
+    </body>
+</html>

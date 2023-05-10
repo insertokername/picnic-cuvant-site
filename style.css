@@ -130,6 +130,10 @@ body {
     border-radius: 0;
   }
 
+  .btn:hover {
+    background-color: #bbb;
+  }
+
   .addBtn:hover {
     background-color: #bbb;
   }

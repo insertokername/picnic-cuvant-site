@@ -64,6 +64,10 @@ val find_all(std::string search_input, uint32_t search_size, bool is_english){
         std::transform(in.begin(),in.end(),in.begin(),
           [](wchar_t i){return ::tolower(i);});
 
+        if(in=="casă"){
+            std::cout<<"found"<<std::endl;
+        }
+
         if(contained(in,cifre,size)){
             result.call<void>("push", in);
         }

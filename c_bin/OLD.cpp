@@ -76,7 +76,6 @@ void find_all(std::string search_input, std::size_t search_size, int is_english)
     while(dict>>in){
         std::transform(in.begin(),in.end(),in.begin(),
               [](wchar_t i){return ::tolower(i);});
-
         
         //std::cout<<in<<std::endl;
         //if(in=="mare"){std::cout<<"FOUND MARE"<<std::endl;}

@@ -189,7 +189,7 @@ var REMOTE_PACKAGE_SIZE = metadata['remote_package_size'];
     }
 
     }
-    loadPackage({"files": [{"filename": "/english_dict.txt", "start": 0, "end": 4234917}, {"filename": "/oxford_dict.txt", "start": 4234917, "end": 4576638}, {"filename": "/romanian_dict.txt", "start": 4576638, "end": 6708472}], "remote_package_size": 6708472});
+    loadPackage({"files": [{"filename": "/english_dict.txt", "start": 0, "end": 4234917}, {"filename": "/oxford_dict.txt", "start": 4234917, "end": 4576638}, {"filename": "/romanian_dict.txt", "start": 4576638, "end": 6708476}], "remote_package_size": 6708476});
 
   })();
 
